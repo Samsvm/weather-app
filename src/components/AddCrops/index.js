@@ -15,7 +15,7 @@ export default class AddCrops extends Component {
 	}
 
 	onChange = e =>{
-		console.log(e.target.val)
+		console.log(e.target.value)
 		this.setState({[e.target.name] : e.target.value});
 	}
 
