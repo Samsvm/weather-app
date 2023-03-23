@@ -26,6 +26,7 @@ export default class Mobile extends Component {
 				<Forecast path="/forecast"/>
 				<AddCrops path="/AddCrops"/>
 				<HomeScreen default/>
+				<cropInfo path="/cropInfo"/>
 			</Router>
 		)
 	}

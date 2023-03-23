@@ -8,6 +8,17 @@ export default class Crops extends Component {
 	constructor(props) {
 		super(props);
 	}
+	state = {
+		crops: []
+	}
+
+	componentDidMount(){
+		fetch("../../cropInfo.json")
+		.then(res => res.json())
+		.then(cropsList => {
+			this.setState({ crops: cropsList});
+		});
+	}
 
 	render() {
 		return (
@@ -18,20 +29,14 @@ export default class Crops extends Component {
 					<div class="myCrops">
 						<a href='/AddCrops' class="button">Add Crops</a>
 						
-						<table id="crops">
-							<tr>
-								<th>Crop</th>
-								<th>Harvest Time</th>
-							</tr>
-							<tr>
-								<td>Strawberries</td>
-								<td>100 days</td>
-							</tr>
-							<tr>
-								<td>Corn</td>
-								<td>20 days</td>
-							</tr>
-						</table>
+						<ul>
+							{this.state.crops.map((crop) => (
+								<li key={crop.id}>{crop.cropName}</li>
+							))}
+						</ul>
+
+
+						
 					</div>
 				</div>
 				
@@ -43,3 +48,18 @@ export default class Crops extends Component {
 		)
 	}
 }
+
+						// <table id="crops">
+						// 	<tr>
+						// 		<th>Crop</th>
+						// 		<th>Harvest Time</th>
+						// 	</tr>
+						// 	<tr>
+						// 		<td>Strawberries</td>
+						// 		<td>100 days</td>
+						// 	</tr>
+						// 	<tr>
+						// 		<td>Corn</td>
+						// 		<td>20 days</td>
+						// 	</tr>
+						// </table>

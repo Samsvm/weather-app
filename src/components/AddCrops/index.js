@@ -21,10 +21,9 @@ export default class AddCrops extends Component {
 
 	onSubmit = e =>{
 		e.preventDefault()
-		
+		fetch('')
+
 		this.setState({cropName : "Strawberries", harvest : "0"})
-		const crop = {cropName,harvest};
-		console.log(crop)
 	}
 	
 
