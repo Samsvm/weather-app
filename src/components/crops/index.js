@@ -13,7 +13,7 @@ export default class Crops extends Component {
 	}
 
 	componentDidMount(){
-		fetch("../../cropInfo.json")
+		fetch("/cropInfo.json")
 		.then(res => res.json())
 		.then(cropsList => {
 			this.setState({ crops: cropsList});
